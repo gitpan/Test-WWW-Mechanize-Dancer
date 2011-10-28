@@ -1,0 +1,13 @@
+
+
+This archive contains the distribution Test-WWW-Mechanize-Dancer,
+version 0.001:
+
+  Wrapper to easily use Test::WWW::Mechanize with your Dancer apps
+
+This software is copyright (c) 2011 by William Wolf.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+
