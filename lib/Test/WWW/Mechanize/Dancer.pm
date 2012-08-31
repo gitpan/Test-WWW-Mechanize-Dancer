@@ -7,7 +7,7 @@ use Module::Load qw(load);
 use Moose;
 use Test::WWW::Mechanize::PSGI;
 
-our $VERSION = '0.002'; # VERSION
+our $VERSION = '0.003'; # VERSION
 
 has appdir      => (is => 'ro', default => getcwd );
 has envdir      => (is => 'ro');
@@ -60,7 +60,7 @@ Test::WWW::Mechanize::Dancer - Wrapper to easily use Test::WWW::Mechanize with y
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 

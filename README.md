@@ -4,7 +4,7 @@ Test::WWW::Mechanize::Dancer - Wrapper to easily use Test::WWW::Mechanize with y
 
 # VERSION
 
-version 0.002
+version 0.003
 
 # SYNOPSIS
 
