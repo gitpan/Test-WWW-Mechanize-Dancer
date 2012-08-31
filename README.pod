@@ -1,59 +1,3 @@
-package Test::WWW::Mechanize::Dancer;
-use strict;
-use warnings;
-use Cwd;
-use Dancer qw(:tests :moose);
-use Module::Load qw(load);
-use Moose;
-use Test::WWW::Mechanize::PSGI;
-
-our $VERSION = '0.002'; # VERSION
-
-has appdir      => (is => 'ro', default => getcwd );
-has envdir      => (is => 'ro');
-has agent       => (is => 'ro', default => 'Dancer Tests');
-has confdir     => (is => 'ro');
-has environment => (is => 'ro', default => 'test');
-has public      => (is => 'ro');
-has views       => (is => 'ro');
-has mech_class  => (is => 'ro', default => 'Test::WWW::Mechanize::PSGI');
-
-has mech        => (
-    is      => 'ro',
-    lazy    => 1,
-    default => sub {
-        my ($self) = @_;
-
-        load $self->mech_class;
-        my $m = $self->mech_class->new(
-            app => sub {
-                my $env = shift;
-                set (
-                    appdir => $self->appdir,
-                    envdir => $self->envdir || path($self->appdir, 'environments'),
-                    confdir => $self->confdir || $self->appdir,
-                    public => $self->public || path($self->appdir,  '/public'),
-                    views => $self->views || path($self->appdir, '/views' ),
-                    environment => $self->environment,
-                );
-                my $request = Dancer::Request->new( env => $env );
-                Dancer->dance( $request );
-            }
-        );
-        $m->agent($self->agent);
-        return $m;
-    },
-);
-
-# ABSTRACT: Wrapper to easily use Test::WWW::Mechanize with your Dancer apps
-
-
-1;
-
-
-__END__
-=pod
-
 =head1 NAME
 
 Test::WWW::Mechanize::Dancer - Wrapper to easily use Test::WWW::Mechanize with your Dancer apps
@@ -146,6 +90,4 @@ This software is copyright (c) 2011 by William Wolf.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
-
-=cut
 

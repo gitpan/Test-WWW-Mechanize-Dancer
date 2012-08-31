@@ -2,21 +2,30 @@
 abstract: 'Wrapper to easily use Test::WWW::Mechanize with your Dancer apps'
 author:
   - 'William Wolf <throughnothing@gmail.com>'
-build_requires: {}
+  - 'Grant McLean <grantm@cpan.org>'
+build_requires:
+  File::Find: 0
+  File::Temp: 0
+  Test::More: 0
+  base: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300002, CPAN::Meta::Converter version 2.112150'
+generated_by: 'Dist::Zilla version 4.300016, CPAN::Meta::Converter version 2.120630'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Test-WWW-Mechanize-Dancer
 requires:
+  Cwd: 0
   Dancer: 0
+  Module::Load: 0
   Moose: 0
   Test::WWW::Mechanize::PSGI: 0
+  strict: 0
+  warnings: 0
 resources:
-  bugtracker: http://github.com/throughnothing/Test-WWW-Mechanize-Dancer
-  repository: git://github.com/throughnothing/Test-WWW-Mechanize-Dancer
-version: 0.001
+  bugtracker: https://github.com/throughnothing/Test-WWW-Mechanize-Dancer/issues
+  repository: git://github.com/throughnothing/Test-WWW-Mechanize-Dancer.git
+version: 0.002
