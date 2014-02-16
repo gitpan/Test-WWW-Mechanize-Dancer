@@ -2,12 +2,12 @@ package Test::WWW::Mechanize::Dancer;
 use strict;
 use warnings;
 use Cwd;
-use Dancer qw(:tests :moose);
+use Dancer qw(:tests :moose !load);
 use Module::Load qw(load);
 use Moose;
 use Test::WWW::Mechanize::PSGI;
 
-our $VERSION = '0.003'; # VERSION
+our $VERSION = '0.0100'; # VERSION
 
 has appdir      => (is => 'ro', default => getcwd );
 has envdir      => (is => 'ro');
@@ -50,9 +50,11 @@ has mech        => (
 
 1;
 
-
 __END__
+
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -60,7 +62,7 @@ Test::WWW::Mechanize::Dancer - Wrapper to easily use Test::WWW::Mechanize with y
 
 =head1 VERSION
 
-version 0.003
+version 0.0100
 
 =head1 SYNOPSIS
 
@@ -148,4 +150,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
